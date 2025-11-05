@@ -24,51 +24,51 @@ db.sequelize.sync()
 
 })
 
-app.post("/film",async (req,res) => {
+app.post("/hotel",async (req,res) => {
     const data = req.body;
     try {
-        const film = await db.film.create(data);
-        res.send(film);  
+        const hotel = await db.hotel.create(data);
+        res.send(hotel);  
     } catch (err) {
         res.send(err);
     }
 });
 
-app.get('/film', async (req,res)  => {
+app.get('/hotel', async (req,res)  => {
     try{
-        const film = await db.film.findAll();
-        res.send(film);
+        const hotel = await db.hotel.findAll();
+        res.send(hotel);
     } catch (err) {
         res.send(err);
     }
 });
 
-app.put('/film/:id', async (req,res)=>{
+app.put('/hotel/:id', async (req,res)=>{
     const id = req.params.id;
     const data = req.body;
 
     try{
-        const film = await db.film.findByPk(id);
-        if (!film) {
-            return res.status(404).send({message : 'film tidak ditemukan'});
+        const hotel = await db.hotel.findByPk(id);
+        if (!hotel) {
+            return res.status(404).send({message : 'hotel tidak ditemukan'});
         }
 
-        await film.update(data);
-        res.send({message : 'film berhasil diupdate', film});
+        await hotel.update(data);
+        res.send({message : 'hotel berhasil diupdate', film});
     } catch (err){
         res.status(500).send(err);
     }
 });
 
-app.delete('/film/:id', async (req, res) => {
+app.delete('/hotel/:id', async (req, res) => {
     const id = req.params.id;
     try {
-        const film = await db.film.findByPk(id);
-        if (!film) {
-            return res.status(404).send({ message: 'film not found' });
+        const hotel = await db.hotel.findByPk(id);
+        if (!hotel) {
+            return res.status(404).send({ message: 'hotel not found' });
         }
-        await film.destroy();
-        res.send({ message: 'film deleted' });
+        await hotel.destroy();
+        res.send({ message: 'hotel deleted' });
     } catch (error) {
         res.status(500).send(err);
     }
