@@ -6,19 +6,19 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey : true
 
         },
-        Nama_film:{
+        Type_Kamar:{
             type : DataTypes.STRING,
         },
-        Deskripsi:{
+        Kapasitas_Tamu:{
             type : DataTypes.STRING,
         },
-        Sutradara:{
+        lantai:{
             type : DataTypes.STRING,
         },
-        Tahun_terbit:{
+        fasilitas:{
             type : DataTypes.INTEGER,
         },
-         Genre:{
+         Tanggal_pesan:{
             type : DataTypes.STRING,
         }
       });
